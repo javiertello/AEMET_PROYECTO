@@ -1,0 +1,53 @@
+<!ELEMENT root (origen, elaborado, nombre, provincia, prediccion)>
+<!ATTLIST root id CDATA #REQUIRED
+                                  version CDATA #REQUIRED
+                                  xmlns:xsd CDATA #IMPLIED
+                                  xmlns:xsi CDATA #IMPLIED
+                                  xsi:noNamespaceSchemaLocation CDATA #IMPLIED>
+
+<!ELEMENT origen (productor, web, enlace, language, copyright, nota_legal)>
+<!ELEMENT productor (#PCDATA)>
+<!ELEMENT web (#PCDATA)>
+<!ELEMENT enlace (#PCDATA)>
+<!ELEMENT language (#PCDATA)>
+<!ELEMENT copyright (#PCDATA)>
+<!ELEMENT nota_legal (#PCDATA)>
+
+<!ELEMENT elaborado (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT provincia (#PCDATA)>
+<!ELEMENT prediccion (dia, dia, dia+)>
+
+<!ELEMENT dia (prob_precipitacion+, cota_nieve_prov+, estado_cielo+, viento+, 
+				racha_max+, temperatura, sens_termica, humedad_relativa, uv_max?)>
+<!ATTLIST dia fecha CDATA #REQUIRED>
+
+<!ELEMENT prob_precipitacion (#PCDATA)>
+<!ATTLIST prob_precipitacion periodo CDATA #IMPLIED>
+
+<!ELEMENT cota_nieve_prov (#PCDATA)>
+<!ATTLIST cota_nieve_prov periodo CDATA #IMPLIED>
+
+<!ELEMENT estado_cielo (#PCDATA)>
+<!ATTLIST estado_cielo periodo CDATA #IMPLIED
+                       descripcion CDATA #REQUIRED>
+
+<!ELEMENT viento (direccion, velocidad)>
+<!ATTLIST viento periodo CDATA #IMPLIED>
+<!ELEMENT direccion (#PCDATA)>
+<!ELEMENT velocidad (#PCDATA)>
+
+<!ELEMENT racha_max (#PCDATA)>
+<!ATTLIST racha_max periodo CDATA #IMPLIED>
+
+<!ELEMENT temperatura (maxima, minima, dato*)>
+<!ELEMENT maxima (#PCDATA)>
+<!ELEMENT minima (#PCDATA)>
+<!ELEMENT dato (#PCDATA)>
+<!ATTLIST dato hora CDATA #IMPLIED>
+
+<!ELEMENT sens_termica (maxima, minima, dato*)>
+
+<!ELEMENT humedad_relativa (maxima, minima, dato*)>
+
+<!ELEMENT uv_max (#PCDATA)>
